@@ -1,4 +1,9 @@
 package br.com.eduardo.model;
 
-public class Usuario {
+public record Usuario(
+        String nome,
+        String email,
+        String senha
+) {
+
 }
