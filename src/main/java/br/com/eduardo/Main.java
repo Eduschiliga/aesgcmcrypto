@@ -18,12 +18,12 @@ public class Main {
                 "GnaX@djl@d_!65Ad_+S>;"
         );
 
-        out.println("Usuario antes da criptografia: " + usuario);
+        out.println("Json Usuario antes da criptografia: " + objectMapper.writeValueAsString(usuario));
 
         String json = encrypt(usuario);
         WrapperJson wrapperJson = new WrapperJson(json);
 
-        out.println("Usuario depois da criptografia: " + wrapperJson);
+        out.println("Usuario depois da criptografia: " + objectMapper.writeValueAsString(wrapperJson));
 
         String jsonDecriptografado = decrypt(wrapperJson.payload());
 

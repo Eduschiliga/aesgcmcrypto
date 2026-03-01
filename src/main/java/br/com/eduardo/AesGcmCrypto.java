@@ -12,9 +12,7 @@ import java.util.Base64;
 
 /**
  * AES-256-GCM.
- *
- * Ficha técnica completa que você deve repassar a eles:
- *
+ * <p>
  * Especificações Criptográficas
  * Algoritmo: AES (Advanced Encryption Standard)
  * Modo de Operação: GCM (Galois/Counter Mode)
@@ -24,8 +22,8 @@ import java.util.Base64;
  * Tamanho da Tag de Autenticação (Auth Tag / MAC): 128 bits (16 bytes)
  * Codificação do texto original: UTF-8
  * Codificação final para tráfego: Base64
- *
- * O array de bytes que foi codificado em Base64 na sua implementação segue exatamente esta estrutura e ordem:
+ * <p>
+ * O array de bytes que foi codificado em Base64 segue exatamente esta estrutura e ordem:
  * Os primeiros 12 bytes: Vetor de Inicialização (IV).
  * O restante dos bytes até os últimos 16: O texto cifrado em si.
  * Os últimos 16 bytes: A Tag de Autenticação.
@@ -34,7 +32,9 @@ public class AesGcmCrypto {
     private static final String ALGORITHM = "AES/GCM/NoPadding";
     private static final int TAG_LENGTH_BIT = 128;
     private static final int IV_LENGTH_BYTE = 12;
-    private static final byte[] secretKey = Base64.getDecoder().decode("vT8+Rq+rV+I/mD6t2yL8+Xk1p3A/cT5hJ6uF8vW0z+Y=");
+
+    private static final byte[] secretKey = Base64.getDecoder()
+            .decode("vT8+Rq+rV+I/mD6t2yL8+Xk1p3A/cT5hJ6uF8vW0z+Y=");
 
     public static String encrypt(Object object) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
